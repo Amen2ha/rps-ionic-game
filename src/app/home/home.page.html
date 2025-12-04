@@ -1,20 +1,36 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content fullscreen class="home-bg">
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div class="floating-icons">
+    <ion-icon name="cut-outline" class="float-icon"></ion-icon>
+    <ion-icon name="hand-left-outline" class="float-icon"></ion-icon>
+    <ion-icon name="documents-outline" class="float-icon"></ion-icon>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+    <ion-icon name="cut-outline" class="float-icon delay1"></ion-icon>
+    <ion-icon name="hand-left-outline" class="float-icon delay2"></ion-icon>
+    <ion-icon name="documents-outline" class="float-icon delay3"></ion-icon>
   </div>
+
+  <div class="home-container">
+
+    <h1 class="app-title">RPS Arena</h1>
+    <p class="app-subtitle">Rock • Paper • Scissors</p>
+
+    <div class="menu-buttons">
+
+      <button class="game-btn" routerLink="/game">
+        <span>▶ {{ 'Start New Game' | translate }}</span>
+      </button>
+
+      <button class="game-btn" routerLink="/history">
+        <span>☰ {{ 'History' | translate }}</span>
+      </button>
+
+      <button class="game-btn" routerLink="/settings">
+        <span>⚙ {{ 'Settings' | translate }}</span>
+      </button>
+
+    </div>
+
+  </div>
+
 </ion-content>

@@ -1,27 +1,120 @@
-#container {
+.home-bg {
+  --background: linear-gradient(180deg, #8b0000, #5a0000);
+  position: relative;
+  overflow: hidden;
+}
+
+.home-container {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+}
 
+.app-title {
+  font-size: 42px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 3px;
+}
+
+.app-subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 40px;
+}
+
+.menu-buttons {
+  width: 80%;
+  max-width: 300px;
+}
+
+.menu-btn {
+  margin-bottom: 15px;
+  --border-radius: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.floating-icons {
   position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  inset: 0;
+  z-index: 1;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+.float-icon {
+  position: absolute;
+  font-size: 50px;
+  color: rgba(255, 255, 255, 0.15);
+  animation: float 12s infinite linear;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+.float-icon:nth-child(1) { left: 10%; animation-duration: 14s; }
+.float-icon:nth-child(2) { left: 30%; animation-duration: 12s; }
+.float-icon:nth-child(3) { left: 60%; animation-duration: 16s; }
+.float-icon:nth-child(4) { left: 80%; animation-duration: 18s; }
 
-  color: #8c8c8c;
+.delay1 { animation-delay: 2s; }
+.delay2 { animation-delay: 4s; }
+.delay3 { animation-delay: 6s; }
 
-  margin: 0;
+@keyframes float {
+  from { transform: translateY(100vh) rotate(0); }
+  to { transform: translateY(-120px) rotate(360deg); }
 }
 
-#container a {
-  text-decoration: none;
+
+
+.menu-buttons {
+  width: 80%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.game-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 16px;
+  border-radius: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  transition: 0.25s ease;
+}
+
+.game-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  opacity: 0;
+  transition: 0.25s ease;
+}
+
+.game-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.game-btn:hover,
+.game-btn:active {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.game-btn:hover::before,
+.game-btn:active::before {
+  opacity: 1;
 }

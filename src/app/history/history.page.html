@@ -1,0 +1,50 @@
+<ion-header>
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-button (click)="goBack()">{{ 'Back' | translate }}</ion-button>
+  </ion-buttons>
+
+  <ion-title class="ion-text-center">{{ 'Game History' | translate }}</ion-title>
+
+  <ion-buttons slot="end">
+    <ion-button (click)="clearAll()">{{ 'Clear All' | translate }}</ion-button>
+  </ion-buttons>
+</ion-toolbar>
+
+</ion-header>
+
+<ion-content class="game-bg">
+
+  <ion-list *ngIf="history.length; else noHistory">
+
+    <ion-item-sliding *ngFor="let game of history; let i = index">
+      <ion-item button (click)="toggleDetails(i)">
+        <ion-label>
+          <h2>{{game.result}} ({{game.score}})</h2>
+          <p>{{game.time}}</p>
+        </ion-label>
+         <ion-button fill="clear" color="danger" slot="end" (click)="deleteGame(i); $event.stopPropagation()">
+         <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+      </ion-item>
+      <div *ngIf="expandedIndex === i" class="round-details">
+        <div *ngFor="let round of game.rounds; let r = index">
+          <p>
+            Round {{r + 1}}: 
+            You - {{round.player}}, 
+            CPU - {{round.cpu}} → 
+            {{round.winner | titlecase}}
+          </p>
+        </div>
+      </div>
+
+
+    </ion-item-sliding>
+
+  </ion-list>
+
+  <ng-template #noHistory>
+    <p class="no-history">{{ 'No rounds played yet.' | translate }}</p>
+  </ng-template>
+
+</ion-content>

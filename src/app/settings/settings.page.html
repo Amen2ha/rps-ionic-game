@@ -1,0 +1,16 @@
+
+<ion-content [fullscreen]="true" class="game-bg">
+  <ion-list inset="true">
+    <ion-item>
+      <ion-select interface="alert" value="en" [label]="'Language' | translate"
+      [(ngModel)]="currentLang" (ionChange)="changeLang($event.detail.value)" [okText]="'OK' | translate" [cancelText]="'CANCEL' | translate">
+        <ion-select-option [value]="lang.code" *ngFor="let lang of languages">{{lang.label}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+
+    <div class="back-home-button-con" routerLink="/home">
+    <button class="game-btn"><span class="home">⌂</span><span>{{ 'Back Home' | translate }}</span></button>
+  </div>
+</ion-content>

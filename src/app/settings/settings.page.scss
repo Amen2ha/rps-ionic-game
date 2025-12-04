@@ -1,0 +1,60 @@
+.game-bg {
+  --background: radial-gradient(circle at top, #7a0000, #2b0000);
+  color: white;
+}
+
+
+.back-home-button-con {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+  
+}
+
+
+.game-btn {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  padding: 16px;
+  border-radius: 18px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: 0.25s ease;
+}
+
+.game-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+  opacity: 0;
+  transition: 0.25s ease;
+}
+
+.game-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.game-btn:hover,
+.game-btn:active {
+  transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.game-btn:hover::before,
+.game-btn:active::before {
+  opacity: 1;
+}
+.home
+{
+    font-size: 2rem;
+    margin-right: 3px;
+}

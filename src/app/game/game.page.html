@@ -1,0 +1,92 @@
+<ion-content class="game-bg" *ngIf="!list">
+
+   <div class="content-wrapper">
+
+  <div class="top-bar">
+    <span>{{ 'Round' | translate }} {{ round }}/{{ maxRounds }}</span>
+    <span>{{ 'Best of' | translate }} {{ maxRounds }}</span>
+  </div>
+
+  <div class="arena">
+
+<div class="fighter player">
+
+  <ng-container *ngIf="playerIcon?.type === 'icon'; else playerImg">
+    <ion-icon [name]="playerIcon.value"></ion-icon>
+  </ng-container>
+
+  <ng-template #playerImg>
+    <img title="player-rock" [src]="playerIcon?.value" class="battle-img" />
+  </ng-template>
+
+  <p>{{ 'You' | translate }}</p>
+</div>
+
+    <div class="vs">{{ 'VS' | translate }}</div>
+
+<div class="fighter cpu">
+
+  <ng-container *ngIf="cpuIcon?.type === 'icon'; else cpuImg">
+    <ion-icon [name]="cpuIcon.value"></ion-icon>
+  </ng-container>
+
+  <ng-template #cpuImg>
+    <img title="computer-rock" [src]="cpuIcon?.value" class="battle-img" />
+  </ng-template>
+
+  <p>{{ 'CPU' | translate }}</p>
+</div>
+
+  </div>
+
+  <div class="result-text" [class.win]="result === 'win'" [class.lose]="result === 'lose'">
+    {{ resultText }}
+  </div>
+
+  <div class="score-board">
+    <div>{{ 'You' | translate }}: {{ playerScore }}</div>
+    <div>{{ 'CPU' | translate }}: {{ cpuScore }}</div>
+  </div>
+
+  <div class="controls">
+    <button class="choice-btn" (click)="play('rock')">🪨</button>
+    <button class="choice-btn" (click)="play('paper')">📄</button>
+    <button class="choice-btn" (click)="play('scissors')">✂️</button>
+  </div>
+
+  <div class="back-home-button-con" (click)="confirmBackHome()">
+    <button class="game-btn"><span class="home">⌂</span><span>{{ 'Back Home' | translate }}</span></button>
+  </div>
+</div>
+</ion-content>
+
+
+
+
+
+
+
+
+
+<ion-content class="game-bg" *ngIf="list">
+
+    <div class="center">
+
+    <h3 class="result-text">{{finalResult}}</h3>
+      <div class="menu-buttons">
+
+      <button class="game-btn" (click)="clear()">
+        <span>▶ {{ 'Play Again' | translate }}</span>
+      </button>
+
+      <button class="game-btn" routerLink="/history" (click)="clear()">
+        <span>☰ {{ 'History' | translate }}</span>
+      </button>
+
+      <button class="game-btn" routerLink="/home" (click)="clear()">
+        <span class="home">⌂</span><span>{{ 'Home Page' | translate }}</span>
+      </button>
+
+    </div>
+</div>
+</ion-content>
